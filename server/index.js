@@ -10,6 +10,9 @@ const server = http.createServer(app);
 app.get('/worker.js', (req, res) => {
   res.sendFile('./assets/worker.js', { root: __dirname });
 });
+app.get('/manifest.json', (req, res) => {
+  res.sendFile('./assets/manifest.json', { root: __dirname });
+});
 app.use('/', express.static(`${__dirname}/../client`));
 server.listen(config.PORT, () => {
   socket(server);
